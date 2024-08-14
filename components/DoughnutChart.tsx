@@ -1,6 +1,7 @@
 "use client";
 
 import { Chart as Chartjs, ArcElement, Tooltip, Legend } from "chart.js";
+import { usePathname } from "next/navigation";
 import { Doughnut } from "react-chartjs-2";
 
 Chartjs.register(ArcElement, Legend, Tooltip);
@@ -16,6 +17,10 @@ const DoughnutChart = ({ accounts }: DoughnutChartProps) => {
     ],
     labels: ["Bank 1", "Bank 2", "Bank 3"],
   };
+
+  const pathname = usePathname();
+
+  console.log(pathname);
   return (
     <Doughnut
       data={data}
